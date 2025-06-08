@@ -1,166 +1,170 @@
-Sync Code: Realtime Collaborative Code Editor
 
-Introduction
+                                       
+                                       🔄 Sync Code: Real-Time Collaborative Code Editor
 
-Are you tired of sending code snippets back and forth, struggling to debug and collaborate with your team? Look no further! Sync Code is here to revolutionize the way you code together. This powerful and intuitive collaborative code editor is designed to empower developers, and teams to work seamlessly in real-time, regardless of their location. With Sync Code, you can code together, debug together, and ship faster, together.
+Code together. Debug together. Ship faster — together.
 
-Features
+Sync Code is a powerful and intuitive real-time collaborative code editor built for developers and teams. Whether you're working remotely or side-by-side, Sync Code empowers seamless and instant collaboration.
 
-Multiple users can join a room and edit code together
+🚀 Features
+👥 Real-time Collaboration: Multiple users can join a room and edit code together.
 
-Changes are reflected in real time
+⚡ Instant Sync: Code updates appear across all clients in real time.
 
-Copy button to copy the room id to clipboard
+📋 Room ID Copy: Easily copy room ID to share with others.
 
-Leave button to leave the room
+🚪 Join/Leave Room: Users can leave and rejoin rooms without losing progress.
 
-Supports syntax highlighting for different programming languages
+🌈 Syntax Highlighting: Supports various programming languages.
 
-Users can choose theme based on their preferences
+🖌️ Theme Options: Choose a theme based on your preference.
 
-Users can leave the room and rejoin later to continue editing
+🔔 User Presence Indicator: Join and leave notifications in real-time.
 
-Joining & leaving of users is also reflected in real time
+🛠️ Tech Stack
+Frontend: React.js, CodeMirror, React-Toastify
 
-Prerequisites
+Backend: Node.js, Express.js, Socket.io
 
-For running via Docker
+Others: Docker, PM2, .env configuration
 
-Docker (25.0.4)
+🧩 Prerequisites
+🔧 For Docker:
+Docker (v25.0.4)
 
-Docker Compose (1.29.2)
+Docker Compose (v1.29.2)
 
-For running locally
-
+🔧 For Local Setup:
 Node.js (v20.11.1)
 
-npm (10.2.4)
+npm (v10.2.4)
 
-pm2 (5.3.1) : run npm i -g pm2 to install pm2 globally
+pm2 (v5.3.1)
+Install using: npm i -g pm2
 
-Note: I have used nvm (v0.39.7) to manage my node versions. View nvm official documentation to install it.
+📌 Note: Node version managed using nvm (v0.39.7)
 
-Tech Stack
+🐳 Running with Docker (Recommended)
+Install Docker
+
+Pull Docker Image
 
-React.js
+bash
+Copy
+Edit
+docker pull mohitur/code-editor
+Run the Container
 
-Node.js
+bash
+Copy
+Edit
+docker run -p 8000:8000 -p 3000:3000 -p 5000:5000 mohitur/code-editor
+Visit http://localhost:3000
 
-Express.js
+Create Room, copy Room ID and share
 
-Socket.io
+Join as another user (incognito or new browser)
 
-CodeMirror
+💡 Tip: If using Linux/WSL2, add sudo to Docker commands.
 
-React-Toastify
+🛠️ Build and Run Your Own Docker Image
+Clone the repo:
 
-Installation
+bash
+Copy
+Edit
+git clone https://github.com/SagarKumarSah923/collab-code-editor.git
+cd collab-code-editor
+Edit .env and docker-compose.yml (replace your Docker username).
 
-Running via Docker Image (highly recommended)
+Build & run:
 
-To run the docker image, follow the steps below:
+bash
+Copy
+Edit
+docker-compose up -d
+Open http://localhost:3000 and follow the steps above.
 
-Install Docker on your machine.
+💻 Running Locally (Dev Mode)
+Clone and navigate:
 
-Pull the docker image from the docker hub by running docker pull mohitur/code-editor
+bash
+Copy
+Edit
+git clone https://github.com/SagarKumarSah923/collab-code-editor.git
+cd collab-code-editor
+Install dependencies:
 
-Run the docker image by running docker run -p 8000:8000 -p 3000:3000 -p 5000:5000 mohitur/code-editor
+bash
+Copy
+Edit
+npm install
+Create .env from example.env and fill required credentials.
 
-Go to http://localhost:3000 to view the app
+Start the frontend:
 
-Create a room by clicking on the create new room button and put a username of your choice
-5 . Copy the room id by clicking on the Copy ROOM ID button
+bash
+Copy
+Edit
+npm start
+Start the backend:
 
-To join as another user, open another browser/browser-window or an incognito tab and go to http://localhost:3000
+bash
+Copy
+Edit
+npm run server:dev
+# OR using PM2
+pm2 start server.js
+Open http://localhost:3000 and start collaborating!
 
-Enter the same room id to join the same room
+🛑 To stop:
 
-Now both your editor will be synced and you can see the changes in real time. Try opening the same room in multiple browsers/browsers-windows and see the changes.
+bash
+Copy
+Edit
+Ctrl + C  # for regular server
+pm2 stop server.js  # if using pm2
+📹 Project Video
+👉 Watch Project Demo
 
-Note: If you are using docker in wsl2/linux then add sudo before the docker commands.
+🧪 Future Scope
+🔒 Authentication and Authorization
 
-Running via building your own Docker Image
+💬 In-room Chat
 
-To run the app using docker, follow the steps below:
+📁 Code Saving and Download
 
-Install Docker on your machine.
+📊 Collaborative Terminal
 
-Clone the project repository and Navigate to the project directory.
+🧠 AI-Powered Suggestions (Copilot-like)
 
-Also you have to change ENV values in the Dockerfile
+🤝 Open Source Contributions Welcome!
+🔧 Steps to Contribute
+bash
+Copy
+Edit
+# Fork the repository
+git clone https://github.com/YOUR_USERNAME/collab-code-editor.git
+cd collab-code-editor
 
-Replace your username in docker-compose.yml file.
+# Create a new branch
+git checkout -b feature/your-feature-name
 
-Run the Docker Compose command: docker-compose up -d
+# Make your changes and commit
+git add .
+git commit -m "Your meaningful commit message"
 
-Go to http://localhost:3000 to view the app
+# Push your branch
+git push origin feature/your-feature-name
+Then, create a Pull Request from your forked repo.
+📌 Note: Always use your own branch for contributing.
 
-Follow the steps 5-7 from the Running via Docker Image section to create and join a room
+🙋‍♂️ About Me
+I’m Sagar Kumar Sah, a tech enthusiast and B.Tech CSE student passionate about building collaborative tools for developers.
 
-Running Locally
+💼 LinkedIn
 
-Clone this repository and cd into it
+💻 GitHub
 
-Run npm install to install the dependencies
-
-Create .env file in the root folder and copy paste the content of example.env, and add necessary credentials.
-
-To start the react app client run npm start in one terminal
-
-To start the server run npm server:dev or pm2 start server.js in another terminal
-
-Go to http://localhost:3000 to view the app
-
-Follow the steps 4-7 from the Running via Docker Image section to create and join a room
-
-Note: To stop your server, press Ctrl+c or if you used "pm2", then use pm2 stop server.js in the terminal.
-
-Project Video
-
-https://github.com/SagarKumarSah923/collab-code-editor/assets/79283402/14c17cc7-d23a-4d39-8af3-ef9e9fa8ef45
-
-Note: If you find any bugs, create an Issue here. I will try to fix it as soon as possible :) 
-In case you want to fix it yourself, feel free to make a pull request.
-
-Future Scope
-
-
-
-Open Source Contribution
-
-If you want to make contribution to this projects, follow the steps below:
-
-Fork this repository
-
-Clone the forked repository 
-
-git clone https://github.com/your-github_username/collab-code-editor.git
-
-cd into the cloned repository
-
-Create a new branch 
-
-git checkout -b your_branch_name
-
-Make your changes
-
-Commit and push your changes 
-
-git add . <br>
-git commit -m "your commit message" <br>
-git push origin your_branch_name
-
-Finally, create a pull request by visiting your forked repository on GitHub
-
-Note: Please make sure to use your own branch when contributing.
-
-About Me
-
-I am Sagar Kumar Sah, a tech enthusiast pursuing B.Tech in Computer Science Engineering. With a strong passion for development and learning, I aim to build meaningful and collaborative tools for developers.
-
-Connect with me
-
-LinkedIn
-
-GitHub
-
+📌 License
+This project is licensed under the MIT License.
